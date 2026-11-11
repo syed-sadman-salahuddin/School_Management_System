@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f5f6fb;
+  --foreground: #141a2e;
+  --card: #ffffff;
+  --muted: #eef0f8;
+  --muted-foreground: #62697e;
+  --border: #e1e4ef;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+}
+
+.dark {
+  --background: #0d1020;
+  --foreground: #e8eaf6;
+  --card: #151932;
+  --muted: #1d2240;
+  --muted-foreground: #9aa1bf;
+  --border: #272d4f;
+  --primary: #7c78f5;
+  --primary-foreground: #0d1020;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
