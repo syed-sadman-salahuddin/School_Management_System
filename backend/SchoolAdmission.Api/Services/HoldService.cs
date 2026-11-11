@@ -99,7 +99,6 @@ public class HoldService
     {
         await using var tx = await _db.Database.BeginTransactionAsync();
 
-        // Lock this hold row so two simultaneous confirms can't both proceed
         var hold = await LockHoldAsync(holdId);
 
         if (hold.StudentId != studentId)
@@ -203,7 +202,6 @@ public class HoldService
             ?? throw new NotFoundException("HOLD_NOT_FOUND", "Reservation does not exist.");
     }
 
-    // A HELD row past its expiry is reported as EXPIRED even before the worker updates it
     private static string EffectiveStatus(Hold h, DateTime now)
         => h.Status == HoldStatus.Held && h.ExpiresAt <= now ? HoldStatus.Expired : h.Status;
 }

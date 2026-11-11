@@ -5,7 +5,6 @@ namespace SchoolAdmission.Api.Services;
 
 public static class StudentIdValidator
 {
-    // Lenient on purpose: 5-32 letters, digits or hyphens (documented in ASSUMPTIONS.md)
     private static readonly Regex Pattern = new(@"^[A-Za-z0-9\-]{5,32}$", RegexOptions.Compiled);
 
     public static string Require(string? header)
